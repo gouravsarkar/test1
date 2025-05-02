@@ -1,0 +1,27 @@
+Change Request Process
+
+About IBM CDC. How CDC connects to Kafka. Currency risk mitigation.
+Infra team to provision new servers. CDC configuration.
+Role binding in Kafka. Testing.
+Then RTL rolling out.
+
+Any process we missed and improvement needed.
+
+IBM CDC processes runs a nohup and not as a service. So during patching or if the server gets rebooted the processes stops. Manual intervention needed.
+So we identify we can run the IBM CDC Access server and Kafka Instances as service.
+We started working with IAM team to setup LPAU account. Least Privilege Account Usage.
+As testing, we create the service file ran in DEV env. Then RTL rolling out.
+
+Any issue/incident.
+
+We were called out saying multiple IBM CDC Subscriptions are  not working. We started investigating and found out that servers were restarted because of Linux Patching.
+We resumed the subscriptions and the issue was fixed. 
+Next day, downstream reported dulicate date for one of thee sub. It was one of them which went down.
+
+Did rca from our side. also raise a case with IBM.
+IBM suggested to use a property in the producer file
+Idempotent Writwr.
+
+Tested in lower environment. with log pointer movement.
+
+Rolled out to RTL.
